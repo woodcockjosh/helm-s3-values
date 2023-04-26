@@ -1,0 +1,20 @@
+releases:
+  - chart: charts/hello
+    name: hello
+    version: 0.1.0
+    values:
+      - values/hello.values.yaml.gotmpl
+  - chart: charts/message
+    name: message
+    version: 0.1.0
+    values:
+      - values/message.values.yaml.gotmpl
+---
+environments:
+  default:
+    values:
+      - data/exclaim.values.yaml
+      - data/first.values.yaml
+      - data/last.values.yaml
+      - data/message.values.yaml
+      - https://helm-s3-values-example.s3.us-east-2.amazonaws.com/values.yaml

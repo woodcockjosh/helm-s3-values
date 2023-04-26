@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: message
+  labels:
+    app: Message
+    message: "{{ .Values.message }} {{ .Values.first }} {{ .Values.last }}{{ .Values.exclaim }}"
+spec:
+  containers:
+    - name: hello
+      image: busybox
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Always
+  

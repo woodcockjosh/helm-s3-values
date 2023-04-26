@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello
+  labels:
+    app: Hello
+    message: Hello {{ .Values.fullname }}!
+spec:
+  containers:
+    - name: hello
+      image: busybox
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Always
+  
