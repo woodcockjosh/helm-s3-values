@@ -31,5 +31,5 @@ helm s3-values upgrade world ./examples/charts/hello \
 
 #### Other:
 ```
-helm somecommand --values s3://helm-s3-values-example/values.yaml
+helm s3-values somecommand --values s3://helm-s3-values-example/values.yaml
 ```

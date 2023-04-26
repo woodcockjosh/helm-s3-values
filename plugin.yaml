@@ -5,4 +5,4 @@ description: "A Helm plugin that allows you to specify an S3 URL for the --value
 ignoreFlags: false
 command: "${HELM_PLUGIN_DIR}/s3-values.sh"
 hooks:
-  install: "./install.sh"
+  install: "${HELM_PLUGIN_DIR}/install.sh"
