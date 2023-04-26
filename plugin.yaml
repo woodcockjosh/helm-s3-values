@@ -1,0 +1,8 @@
+name: "s3-values"
+version: "0.1.0"
+usage: "Fetch values.yaml from an S3 bucket and use it with the --values flag"
+description: "A Helm plugin that allows you to specify an S3 URL for the --values flag"
+ignoreFlags: false
+command: "${HELM_PLUGIN_DIR}/s3-values.sh"
+hooks:
+  install: "./install.sh"
