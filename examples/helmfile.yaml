@@ -1,3 +1,5 @@
+# Note: This does not make use of the helm s3-values plugin but rather helmfile's built in capability of git supported go-getter _style_ urls:
+# https://helmfile.readthedocs.io/en/latest/#loading-remote-environment-values-files
 releases:
   - chart: charts/hello
     name: hello
@@ -16,5 +18,16 @@ environments:
       - data/exclaim.values.yaml
       - data/first.values.yaml
       - data/last.values.yaml
-      - data/message.values.yaml
-      - https://helm-s3-values-example.s3.us-east-2.amazonaws.com/values.yaml
+      - git::https://github.com/woodcockjosh/s3-values@/examples/data/message.values.yaml?ref=main
+      - git::https://github.com/woodcockjosh/s3-values@/examples/data/values.yaml?ref=main
+      # Should work but doesn't
+#      - s3::https://helm-s3-values-example.s3.us-east-2.amazonaws.com/values.yaml
+#      - s3::helm-s3-values-example.s3.amazonaws.com/values.yaml
+      # Doesn't work
+#      - https://john:doe@helm-s3-values-example.s3.us-east-2.amazonaws.com/values.yaml
+#      - https://helm-s3-values-example.s3.us-east-2.amazonaws.com/values.yaml
+#      - http:://helm-s3-values-example.s3.us-east-2.amazonaws.com/values.yaml
+#      - http:://helm-s3-values-example.s3.us-east-2.amazonaws.com/values.yaml
+#      - s3:://helm-s3-values-example/values.yaml
+      # Could work if s3-values plugin was incorporated into helmfile
+#      - s3://helm-s3-values-example/values.yaml
